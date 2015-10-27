@@ -11,7 +11,7 @@ if (!function_exists('create_breadcrumb')) {
         $crumb_open_tag = '<li>';
         $active_crumb_open_tag = '<li class="active-crumb">';
         $crumb_close_tag = '</li>';
-        $separator = '<span class="crumb-separator">/</span>';
+        $separator = '<span class="crumb-separator">:</span>';
 
         $total_segments = $ci->uri->total_segments();
 
@@ -21,10 +21,9 @@ if (!function_exists('create_breadcrumb')) {
             $breadcrumbs .= $crumb_open_tag;
             $breadcrumbs .= create_crumb_href($initial_crumb, true) . $separator;
         }
-
+        
         for ($i = 1; $i <= $total_segments; $i++) {
-            
-            if ($total_segments < $i) {
+            if ($total_segments > $i) {
                 $breadcrumbs .= $crumb_open_tag;
                 $breadcrumbs .= create_crumb_href($ci->uri->segment($i));
                 $breadcrumbs .= $separator;
