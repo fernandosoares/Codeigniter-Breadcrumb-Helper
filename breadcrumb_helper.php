@@ -65,5 +65,4 @@ if (!function_exists('create_crumb_href')) {
             return '<a href="' . $base_url . $crumb_href . '">' . strtolower(str_replace(array('-', '_'), ' ', $uri_segment)) . '</a>';
         }
     }
-
 }
